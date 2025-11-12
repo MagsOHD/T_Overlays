@@ -18,6 +18,19 @@ class StartingSoonOverlay {
       // Appliquer les informations du streamer
       this.applySocials(config.streamer.socials);
 
+      // Appliquer les messages personnalisés
+      if (config.startingSoon?.message) {
+        document.querySelector('.preparing').textContent = config.startingSoon.message;
+      }
+      if (config.startingSoon?.subtitle) {
+        document.getElementById('subtitle').textContent = config.startingSoon.subtitle;
+      }
+
+      // Initialiser les fun facts
+      if (config.startingSoon?.funFacts) {
+        this.startFunFacts(config.startingSoon.funFacts);
+      }
+
       // Démarrer le countdown
       const countdownMinutes = config.startingSoon?.countdownMinutes || 5;
       this.startCountdown(countdownMinutes * 60);
@@ -28,6 +41,25 @@ class StartingSoonOverlay {
 
     // Créer les particules
     utils.createParticles(document.querySelector('.background-particles'), 30);
+  }
+
+  startFunFacts(facts) {
+    const funFactElement = document.getElementById('funFact');
+    let currentIndex = 0;
+
+    // Afficher le premier fun fact
+    funFactElement.textContent = facts[currentIndex];
+
+    // Changer de fun fact toutes les 10 secondes
+    setInterval(() => {
+      currentIndex = (currentIndex + 1) % facts.length;
+      funFactElement.style.opacity = '0';
+
+      setTimeout(() => {
+        funFactElement.textContent = facts[currentIndex];
+        funFactElement.style.opacity = '1';
+      }, 300);
+    }, 10000);
   }
 
   applySocials(socials) {

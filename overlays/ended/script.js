@@ -9,8 +9,23 @@ class EndedOverlay {
     // Charger la configuration
     const config = await utils.loadConfig();
 
-    if (config && config.streamer) {
-      this.applySocials(config.streamer.socials);
+    if (config) {
+      if (config.streamer) {
+        this.applySocials(config.streamer.socials);
+      }
+
+      // Appliquer les messages personnalisés
+      if (config.ended) {
+        if (config.ended.message) {
+          document.querySelector('.message-line.highlight').textContent = config.ended.message;
+        }
+        if (config.ended.submessage) {
+          document.querySelector('.message-line:first-child').textContent = config.ended.submessage;
+        }
+        if (config.ended.nextStream) {
+          document.querySelector('.next-stream p').textContent = config.ended.nextStream;
+        }
+      }
     }
 
     // Créer les effets visuels

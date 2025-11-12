@@ -126,6 +126,15 @@ body {
   color: var(--text-color);
   opacity: 0.9;
   animation: pulse 2s ease-in-out infinite;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: var(--accent-color);
+  opacity: 0.9;
+  font-weight: 600;
+  margin-top: 10px;
 }
 
 /* Socials */
@@ -221,6 +230,232 @@ body {
   66% {
     transform: translateY(20px) translateX(-20px) rotate(240deg);
   }
+}
+
+/* Cat Animation */
+.cat-animation {
+  margin: 40px 0;
+  animation: slideInFromLeft 1s ease-out 1.5s both;
+}
+
+.cat-container {
+  position: relative;
+  display: inline-block;
+}
+
+.cat {
+  position: relative;
+  width: 120px;
+  height: 100px;
+}
+
+.cat-head {
+  position: relative;
+  width: 80px;
+  height: 70px;
+  background: var(--accent-color);
+  border-radius: 50% 50% 45% 45%;
+  margin: 0 auto;
+  animation: catHeadBob 3s ease-in-out infinite;
+}
+
+@keyframes catHeadBob {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-5px) rotate(-2deg); }
+}
+
+.cat-ear {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-bottom: 25px solid var(--accent-color);
+  top: -15px;
+}
+
+.cat-ear-left {
+  left: 10px;
+  transform: rotate(-15deg);
+  animation: earWiggle 2s ease-in-out infinite;
+}
+
+.cat-ear-right {
+  right: 10px;
+  transform: rotate(15deg);
+  animation: earWiggle 2s ease-in-out infinite 0.5s;
+}
+
+@keyframes earWiggle {
+  0%, 100% { transform: rotate(-15deg); }
+  50% { transform: rotate(-10deg); }
+}
+
+.cat-ear-right {
+  animation-delay: 0.5s;
+}
+
+.cat-face {
+  position: relative;
+  padding-top: 15px;
+}
+
+.cat-eye {
+  position: absolute;
+  width: 12px;
+  height: 14px;
+  background: #000;
+  border-radius: 50%;
+  top: 20px;
+  animation: catBlink 4s ease-in-out infinite;
+}
+
+@keyframes catBlink {
+  0%, 48%, 52%, 100% { transform: scaleY(1); }
+  50% { transform: scaleY(0.1); }
+}
+
+.cat-eye-left {
+  left: 20px;
+}
+
+.cat-eye-right {
+  right: 20px;
+}
+
+.cat-pupil {
+  width: 6px;
+  height: 8px;
+  background: #fff;
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: 3px;
+}
+
+.cat-nose {
+  position: absolute;
+  width: 8px;
+  height: 6px;
+  background: #ff69b4;
+  border-radius: 50%;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.cat-whisker {
+  position: absolute;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.6);
+  width: 25px;
+}
+
+.whisker-left-top {
+  left: -25px;
+  top: 30px;
+  transform: rotate(-10deg);
+}
+
+.whisker-left-bottom {
+  left: -25px;
+  top: 40px;
+  transform: rotate(10deg);
+}
+
+.whisker-right-top {
+  right: -25px;
+  top: 30px;
+  transform: rotate(10deg);
+}
+
+.whisker-right-bottom {
+  right: -25px;
+  top: 40px;
+  transform: rotate(-10deg);
+}
+
+.cat-body {
+  width: 90px;
+  height: 50px;
+  background: var(--accent-color);
+  border-radius: 50% 50% 40% 40%;
+  margin: -10px auto 0;
+  position: relative;
+}
+
+.cat-paw {
+  position: absolute;
+  width: 20px;
+  height: 25px;
+  background: var(--accent-color);
+  border-radius: 50% 50% 60% 60%;
+  bottom: -20px;
+  animation: catPawWave 1s ease-in-out infinite;
+}
+
+.cat-paw-left {
+  left: 15px;
+}
+
+.cat-paw-right {
+  right: 15px;
+  animation-delay: 0.5s;
+}
+
+@keyframes catPawWave {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(-10deg); }
+}
+
+.cat-tail {
+  position: absolute;
+  width: 50px;
+  height: 15px;
+  background: var(--accent-color);
+  border-radius: 50%;
+  bottom: 10px;
+  right: -35px;
+  transform-origin: left center;
+  animation: catTailWag 2s ease-in-out infinite;
+}
+
+@keyframes catTailWag {
+  0%, 100% { transform: rotate(-20deg); }
+  50% { transform: rotate(20deg); }
+}
+
+.controller-icon {
+  position: absolute;
+  bottom: -10px;
+  right: -50px;
+  font-size: 2rem;
+  animation: bounce 2s ease-in-out infinite;
+  filter: drop-shadow(0 0 10px var(--primary-color));
+}
+
+/* Fun Fact */
+.fun-fact {
+  display: inline-flex;
+  align-items: center;
+  gap: 15px;
+  padding: 20px 40px;
+  margin: 40px auto;
+  max-width: 700px;
+  animation: slideInFromRight 1s ease-out 2s both;
+}
+
+.fun-fact-icon {
+  font-size: 2rem;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.fun-fact-text {
+  font-size: 1.1rem;
+  color: var(--text-color);
+  line-height: 1.6;
+  font-style: italic;
+  opacity: 0.95;
 }
 
 /* Responsive */

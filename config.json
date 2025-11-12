@@ -1,6 +1,7 @@
 {
   "streamer": {
     "name": "Votre Nom",
+    "tagline": "Geek, Gamer & Cat Lover 🐱",
     "socials": {
       "twitch": "votre_twitch",
       "twitter": "votre_twitter",
@@ -9,11 +10,12 @@
     }
   },
   "theme": {
-    "primaryColor": "#6441a5",
-    "secondaryColor": "#9147ff",
-    "accentColor": "#f1c40f",
-    "backgroundColor": "#1a1a2e",
-    "textColor": "#ffffff"
+    "primaryColor": "#00d9ff",
+    "secondaryColor": "#ff00ff",
+    "accentColor": "#ffcc00",
+    "backgroundColor": "#0a0e27",
+    "textColor": "#ffffff",
+    "style": "cyberpunk-cozy"
   },
   "alerts": {
     "follow": {
@@ -21,36 +23,67 @@
       "duration": 5000,
       "sound": "assets/sounds/follow.mp3",
       "volume": 0.7,
-      "message": "{user} vient de follow !"
+      "message": "🐱 {user} rejoint la team ! Miaou !",
+      "catEmoji": "😸"
     },
     "subscription": {
       "enabled": true,
       "duration": 7000,
       "sound": "assets/sounds/sub.mp3",
       "volume": 0.8,
-      "message": "{user} vient de s'abonner !"
+      "message": "✨ {user} devient un Chat Premium ! Ronron !",
+      "catEmoji": "😻"
     },
     "donation": {
       "enabled": true,
       "duration": 7000,
       "sound": "assets/sounds/donation.mp3",
       "volume": 0.8,
-      "message": "{user} a donné {amount}€ !"
+      "message": "💝 {user} offre {amount}€ de croquettes ! Merci !",
+      "catEmoji": "😺"
     },
     "raid": {
       "enabled": true,
       "duration": 8000,
       "sound": "assets/sounds/raid.mp3",
       "volume": 0.9,
-      "message": "{user} raid avec {viewers} viewers !"
+      "message": "🚀 {user} débarque avec {viewers} chats sauvages !",
+      "catEmoji": "🙀"
+    },
+    "bits": {
+      "enabled": true,
+      "duration": 6000,
+      "sound": "assets/sounds/bits.mp3",
+      "volume": 0.75,
+      "message": "💎 {user} envoie {amount} bits brillants !",
+      "catEmoji": "😽"
     }
   },
   "startingSoon": {
     "countdownMinutes": 5,
-    "message": "Le stream commence bientôt..."
+    "message": "On prépare les manettes... et les chats ! 🎮🐱",
+    "subtitle": "Cyberpunk, Arc Raiders & chill",
+    "funFacts": [
+      "Saviez-vous ? Les chats dorment 70% de leur vie !",
+      "Fun fact : Cyberpunk 2077 contient plus de 400 000 lignes de dialogue !",
+      "Le saviez-vous ? Les chats peuvent faire plus de 100 sons différents !",
+      "Arc Raiders arrive bientôt... comme un chat qui saute sur un clavier !"
+    ]
   },
   "brb": {
-    "message": "De retour dans quelques instants...",
+    "message": "Pause câlin avec mon chat ! 🐱☕",
+    "messages": [
+      "Partie de cache-cache avec le chat...",
+      "Recharge de caféine en cours...",
+      "AFK - Chat sur clavier détecté",
+      "Pause technique (et câlins)",
+      "Brb - Mission croquettes"
+    ],
     "showTimer": true
+  },
+  "ended": {
+    "message": "Merci d'avoir traîné avec nous ! 💜🐱",
+    "submessage": "Les chats et moi, on vous dit à bientôt !",
+    "nextStream": "Prochain stream : Bientôt pour + de geekeries !"
   }
 }

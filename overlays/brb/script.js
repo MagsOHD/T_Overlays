@@ -17,9 +17,12 @@ class BRBOverlay {
     if (config && config.brb) {
       this.showTimer = config.brb.showTimer !== false;
 
-      // Appliquer le message personnalisé si défini
-      if (config.brb.message) {
-        document.querySelector('.message').textContent = config.brb.message;
+      // Si plusieurs messages, les faire tourner aléatoirement
+      if (config.brb.messages && config.brb.messages.length > 0) {
+        this.startRandomMessages(config.brb.messages);
+      } else if (config.brb.message) {
+        // Sinon appliquer le message unique
+        document.getElementById('message').textContent = config.brb.message;
       }
     }
 
@@ -32,6 +35,25 @@ class BRBOverlay {
 
     // Créer les particules
     utils.createParticles(document.querySelector('.background-animation'), 20);
+  }
+
+  startRandomMessages(messages) {
+    const messageElement = document.getElementById('message');
+
+    // Afficher un message aléatoire au départ
+    const randomIndex = Math.floor(Math.random() * messages.length);
+    messageElement.textContent = messages[randomIndex];
+
+    // Changer de message toutes les 8 secondes
+    setInterval(() => {
+      const newIndex = Math.floor(Math.random() * messages.length);
+      messageElement.style.opacity = '0';
+
+      setTimeout(() => {
+        messageElement.textContent = messages[newIndex];
+        messageElement.style.opacity = '1';
+      }, 300);
+    }, 8000);
   }
 
   startTimer() {
