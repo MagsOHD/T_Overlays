@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>T_Overlays - Page de Test et Navigation</title>
+  <link rel="stylesheet" href="css/global.css">
+  <style>
+    body {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      min-height: 100vh;
+      padding: 50px 20px;
+      overflow-y: auto;
+    }
+
+    .main-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 60px;
+      animation: fadeIn 1s ease-in;
+    }
+
+    .header h1 {
+      font-size: 4rem;
+      font-weight: 900;
+      background: linear-gradient(135deg, #9147ff, #f1c40f);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 5px;
+    }
+
+    .header p {
+      font-size: 1.5rem;
+      color: var(--text-color);
+      opacity: 0.8;
+    }
+
+    .overlays-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-bottom: 60px;
+    }
+
+    .overlay-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      border-radius: 20px;
+      padding: 30px;
+      transition: all 0.3s ease;
+      animation: slideInFromBottom 0.8s ease-out both;
+    }
+
+    .overlay-card:nth-child(1) { animation-delay: 0.1s; }
+    .overlay-card:nth-child(2) { animation-delay: 0.2s; }
+    .overlay-card:nth-child(3) { animation-delay: 0.3s; }
+    .overlay-card:nth-child(4) { animation-delay: 0.4s; }
+    .overlay-card:nth-child(5) { animation-delay: 0.5s; }
+
+    .overlay-card:hover {
+      transform: translateY(-10px);
+      border-color: var(--accent-color);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    }
+
+    .overlay-icon {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .overlay-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--accent-color);
+      margin-bottom: 15px;
+    }
+
+    .overlay-description {
+      font-size: 1rem;
+      color: var(--text-color);
+      opacity: 0.9;
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 30px;
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      color: white;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+      margin-right: 10px;
+      margin-bottom: 10px;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      border-color: var(--accent-color);
+    }
+
+    .test-section {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      border-radius: 20px;
+      padding: 40px;
+      margin-bottom: 60px;
+    }
+
+    .test-section h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--accent-color);
+      margin-bottom: 20px;
+    }
+
+    .test-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .info-section {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border: 2px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 30px;
+      margin-top: 40px;
+    }
+
+    .info-section h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text-color);
+      margin-bottom: 15px;
+    }
+
+    .info-section p {
+      color: var(--text-color);
+      opacity: 0.8;
+      line-height: 1.6;
+      margin-bottom: 10px;
+    }
+
+    .info-section code {
+      background: rgba(0, 0, 0, 0.3);
+      padding: 2px 8px;
+      border-radius: 5px;
+      font-family: 'Courier New', monospace;
+      color: var(--accent-color);
+    }
+
+    @media (max-width: 768px) {
+      .header h1 {
+        font-size: 2.5rem;
+      }
+
+      .overlays-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="main-container">
+    <div class="header">
+      <h1>🎮 T_Overlays</h1>
+      <p>Système complet d'overlays de streaming</p>
+    </div>
+
+    <div class="overlays-grid">
+      <div class="overlay-card">
+        <span class="overlay-icon">⏳</span>
+        <h2 class="overlay-title">Starting Soon</h2>
+        <p class="overlay-description">
+          Écran de démarrage avec countdown personnalisable et affichage des réseaux sociaux.
+        </p>
+        <a href="overlays/starting-soon/index.html" class="btn" target="_blank">Ouvrir</a>
+        <a href="overlays/starting-soon/" class="btn btn-secondary">Dossier</a>
+      </div>
+
+      <div class="overlay-card">
+        <span class="overlay-icon">☕</span>
+        <h2 class="overlay-title">Be Right Back</h2>
+        <p class="overlay-description">
+          Écran de pause avec timer et animations relaxantes pour vos pauses.
+        </p>
+        <a href="overlays/brb/index.html" class="btn" target="_blank">Ouvrir</a>
+        <a href="overlays/brb/" class="btn btn-secondary">Dossier</a>
+      </div>
+
+      <div class="overlay-card">
+        <span class="overlay-icon">💜</span>
+        <h2 class="overlay-title">Stream Ended</h2>
+        <p class="overlay-description">
+          Écran de fin avec statistiques, confettis et remerciements animés.
+        </p>
+        <a href="overlays/ended/index.html" class="btn" target="_blank">Ouvrir</a>
+        <a href="overlays/ended/" class="btn btn-secondary">Dossier</a>
+      </div>
+
+      <div class="overlay-card">
+        <span class="overlay-icon">🔔</span>
+        <h2 class="overlay-title">Alertes</h2>
+        <p class="overlay-description">
+          Système d'alertes pour follows, subs, donations, raids avec sons et animations.
+        </p>
+        <a href="overlays/alerts/index.html" class="btn" target="_blank">Ouvrir</a>
+        <a href="overlays/alerts/" class="btn btn-secondary">Dossier</a>
+      </div>
+
+      <div class="overlay-card">
+        <span class="overlay-icon">💬</span>
+        <h2 class="overlay-title">Chat Box</h2>
+        <p class="overlay-description">
+          Affichage moderne du chat en direct avec badges et couleurs personnalisables.
+        </p>
+        <a href="overlays/chat-box/index.html" class="btn" target="_blank">Ouvrir</a>
+        <a href="overlays/chat-box/" class="btn btn-secondary">Dossier</a>
+      </div>
+    </div>
+
+    <div class="test-section">
+      <h2>🧪 Tests des Overlays</h2>
+      <p>Utilisez ces boutons pour tester rapidement les différentes fonctionnalités :</p>
+
+      <h3 style="color: var(--text-color); margin-top: 30px; margin-bottom: 15px;">Alertes</h3>
+      <div class="test-buttons">
+        <button class="btn" onclick="testFollow()">Test Follow</button>
+        <button class="btn" onclick="testSub()">Test Sub</button>
+        <button class="btn" onclick="testDonation()">Test Donation</button>
+        <button class="btn" onclick="testRaid()">Test Raid</button>
+        <button class="btn" onclick="testBits()">Test Bits</button>
+      </div>
+
+      <h3 style="color: var(--text-color); margin-top: 30px; margin-bottom: 15px;">Chat</h3>
+      <div class="test-buttons">
+        <button class="btn" onclick="testChatMessages()">Test Messages</button>
+      </div>
+    </div>
+
+    <div class="info-section">
+      <h3>📖 Comment utiliser dans OBS</h3>
+      <p>
+        1. Ouvrez OBS/Streamlabs<br>
+        2. Ajouter une Source → Navigateur<br>
+        3. URL locale : Copiez le chemin complet d'un overlay (ex: <code>file:///chemin/vers/overlays/alerts/index.html</code>)<br>
+        4. Largeur: 1920, Hauteur: 1080<br>
+        5. Cochez "Actualiser le navigateur quand la scène devient active"
+      </p>
+
+      <h3 style="margin-top: 30px;">⚙️ Configuration</h3>
+      <p>
+        Éditez le fichier <code>config.json</code> à la racine pour personnaliser :<br>
+        - Vos réseaux sociaux<br>
+        - Les couleurs du thème<br>
+        - Les messages d'alertes<br>
+        - La durée d'affichage<br>
+        - Les volumes des sons
+      </p>
+
+      <h3 style="margin-top: 30px;">🎵 Sons</h3>
+      <p>
+        Ajoutez vos fichiers audio dans <code>assets/sounds/</code>:<br>
+        - follow.mp3<br>
+        - sub.mp3<br>
+        - donation.mp3<br>
+        - raid.mp3<br>
+        - bits.mp3<br>
+        <br>
+        Voir <code>assets/sounds/README.md</code> pour plus d'informations.
+      </p>
+
+      <h3 style="margin-top: 30px;">📚 Documentation</h3>
+      <p>
+        Consultez le <code>README.md</code> pour la documentation complète !
+      </p>
+    </div>
+  </div>
+
+  <script>
+    function testFollow() {
+      const win = window.open('overlays/alerts/index.html', 'alerts');
+      setTimeout(() => {
+        win.postMessage({
+          type: 'follow',
+          data: { user: 'TestUser123' }
+        }, '*');
+      }, 1000);
+    }
+
+    function testSub() {
+      const win = window.open('overlays/alerts/index.html', 'alerts');
+      setTimeout(() => {
+        win.postMessage({
+          type: 'subscription',
+          data: { user: 'MegaSub', tier: 3 }
+        }, '*');
+      }, 1000);
+    }
+
+    function testDonation() {
+      const win = window.open('overlays/alerts/index.html', 'alerts');
+      setTimeout(() => {
+        win.postMessage({
+          type: 'donation',
+          data: { user: 'GenerousDonor', amount: 50 }
+        }, '*');
+      }, 1000);
+    }
+
+    function testRaid() {
+      const win = window.open('overlays/alerts/index.html', 'alerts');
+      setTimeout(() => {
+        win.postMessage({
+          type: 'raid',
+          data: { user: 'FriendlyStreamer', viewers: 250 }
+        }, '*');
+      }, 1000);
+    }
+
+    function testBits() {
+      const win = window.open('overlays/alerts/index.html', 'alerts');
+      setTimeout(() => {
+        win.postMessage({
+          type: 'bits',
+          data: { user: 'BitCheer', amount: 1000 }
+        }, '*');
+      }, 1000);
+    }
+
+    function testChatMessages() {
+      window.open('overlays/chat-box/index.html', 'chat');
+    }
+  </script>
+</body>
+</html>

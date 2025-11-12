@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat Box</title>
+  <link rel="stylesheet" href="../../css/global.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="chat-container glass-effect">
+    <div class="chat-header">
+      <div class="chat-icon">💬</div>
+      <div class="chat-title">Chat en direct</div>
+    </div>
+
+    <div class="chat-messages" id="chatMessages">
+      <!-- Les messages apparaîtront ici -->
+    </div>
+  </div>
+
+  <!-- Template pour les messages -->
+  <template id="messageTemplate">
+    <div class="chat-message">
+      <div class="message-avatar"></div>
+      <div class="message-content">
+        <div class="message-header">
+          <span class="message-username"></span>
+          <span class="message-badges"></span>
+        </div>
+        <div class="message-text"></div>
+      </div>
+    </div>
+  </template>
+
+  <script src="../../js/utils.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

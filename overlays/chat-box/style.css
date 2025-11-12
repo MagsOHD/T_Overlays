@@ -1,0 +1,236 @@
+body {
+  background: transparent;
+  overflow: hidden;
+}
+
+.chat-container {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  width: 400px;
+  max-height: 600px;
+  display: flex;
+  flex-direction: column;
+  animation: slideInFromLeft 0.5s ease-out;
+}
+
+.chat-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 20px;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  border-radius: 15px 15px 0 0;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.chat-icon {
+  font-size: 1.5rem;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.chat-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-color);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: 550px;
+}
+
+/* Scrollbar personnalisée */
+.chat-messages::-webkit-scrollbar {
+  width: 8px;
+}
+
+.chat-messages::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+}
+
+.chat-messages::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 10px;
+}
+
+.chat-messages::-webkit-scrollbar-thumb:hover {
+  background: var(--secondary-color);
+}
+
+/* Message */
+.chat-message {
+  display: flex;
+  gap: 12px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  border-left: 3px solid var(--accent-color);
+  animation: messageSlideIn 0.3s ease-out;
+  transition: all 0.3s ease;
+}
+
+.chat-message:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateX(5px);
+}
+
+@keyframes messageSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.message-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: white;
+  text-transform: uppercase;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.message-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.message-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 5px;
+  flex-wrap: wrap;
+}
+
+.message-username {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--accent-color);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.message-badges {
+  display: flex;
+  gap: 4px;
+  font-size: 0.85rem;
+}
+
+.badge {
+  padding: 2px 6px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.badge.mod {
+  background: #00ad03;
+  color: white;
+}
+
+.badge.vip {
+  background: #e005b9;
+  color: white;
+}
+
+.badge.sub {
+  background: var(--primary-color);
+  color: white;
+}
+
+.message-text {
+  color: var(--text-color);
+  font-size: 0.95rem;
+  line-height: 1.4;
+  word-wrap: break-word;
+  opacity: 0.95;
+}
+
+/* Emojis dans les messages */
+.message-text .emoji {
+  font-size: 1.2rem;
+  vertical-align: middle;
+}
+
+/* Message types spéciaux */
+.chat-message.highlight {
+  background: rgba(241, 196, 15, 0.2);
+  border-left-color: #f1c40f;
+}
+
+.chat-message.system {
+  background: rgba(52, 152, 219, 0.2);
+  border-left-color: #3498db;
+}
+
+.chat-message.system .message-username {
+  color: #3498db;
+}
+
+/* Animation de chargement */
+.chat-loading {
+  text-align: center;
+  padding: 20px;
+  color: var(--text-color);
+  opacity: 0.7;
+  font-style: italic;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .chat-container {
+    width: 300px;
+    bottom: 10px;
+    left: 10px;
+  }
+
+  .chat-messages {
+    max-height: 400px;
+  }
+
+  .message-avatar {
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
+  }
+}
+
+/* Animation quand pas de messages */
+.no-messages {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--text-color);
+  opacity: 0.6;
+  font-style: italic;
+}
+
+.no-messages::before {
+  content: '💬';
+  display: block;
+  font-size: 3rem;
+  margin-bottom: 10px;
+  animation: pulse 2s ease-in-out infinite;
+}

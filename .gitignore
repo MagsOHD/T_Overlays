@@ -1,0 +1,37 @@
+# Fichiers audio (trop volumineux pour git)
+assets/sounds/*.mp3
+assets/sounds/*.wav
+assets/sounds/*.ogg
+
+# Images personnelles
+assets/images/*.png
+assets/images/*.jpg
+assets/images/*.jpeg
+assets/images/*.gif
+!assets/images/.gitkeep
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Éditeurs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+
+# Fichiers de backup
+*.bak
+*.tmp
+
+# Node modules (si utilisation de npm)
+node_modules/
+package-lock.json
+
+# Configuration locale
+config.local.json

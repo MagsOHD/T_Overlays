@@ -1,0 +1,56 @@
+{
+  "streamer": {
+    "name": "Votre Nom",
+    "socials": {
+      "twitch": "votre_twitch",
+      "twitter": "votre_twitter",
+      "youtube": "votre_youtube",
+      "discord": "votre_discord"
+    }
+  },
+  "theme": {
+    "primaryColor": "#6441a5",
+    "secondaryColor": "#9147ff",
+    "accentColor": "#f1c40f",
+    "backgroundColor": "#1a1a2e",
+    "textColor": "#ffffff"
+  },
+  "alerts": {
+    "follow": {
+      "enabled": true,
+      "duration": 5000,
+      "sound": "assets/sounds/follow.mp3",
+      "volume": 0.7,
+      "message": "{user} vient de follow !"
+    },
+    "subscription": {
+      "enabled": true,
+      "duration": 7000,
+      "sound": "assets/sounds/sub.mp3",
+      "volume": 0.8,
+      "message": "{user} vient de s'abonner !"
+    },
+    "donation": {
+      "enabled": true,
+      "duration": 7000,
+      "sound": "assets/sounds/donation.mp3",
+      "volume": 0.8,
+      "message": "{user} a donné {amount}€ !"
+    },
+    "raid": {
+      "enabled": true,
+      "duration": 8000,
+      "sound": "assets/sounds/raid.mp3",
+      "volume": 0.9,
+      "message": "{user} raid avec {viewers} viewers !"
+    }
+  },
+  "startingSoon": {
+    "countdownMinutes": 5,
+    "message": "Le stream commence bientôt..."
+  },
+  "brb": {
+    "message": "De retour dans quelques instants...",
+    "showTimer": true
+  }
+}

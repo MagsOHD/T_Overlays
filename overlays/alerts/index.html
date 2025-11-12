@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alerts</title>
+  <link rel="stylesheet" href="../../css/global.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="alert-container" id="alertContainer">
+    <!-- Les alertes seront injectées ici dynamiquement -->
+  </div>
+
+  <!-- Template pour les alertes -->
+  <template id="alertTemplate">
+    <div class="alert">
+      <div class="alert-background"></div>
+      <div class="alert-content">
+        <div class="alert-icon-container">
+          <div class="alert-icon-glow"></div>
+          <div class="alert-icon"></div>
+        </div>
+        <div class="alert-text">
+          <div class="alert-type"></div>
+          <div class="alert-message"></div>
+          <div class="alert-submessage"></div>
+        </div>
+      </div>
+      <div class="alert-particles"></div>
+    </div>
+  </template>
+
+  <script src="../../js/utils.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
