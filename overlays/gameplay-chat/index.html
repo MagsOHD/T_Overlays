@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gameplay + Chat</title>
+  <link rel="stylesheet" href="../../css/global.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="overlay-container">
+    <!-- Barre supérieure -->
+    <div class="top-bar glass-effect">
+      <div class="stream-title" id="streamTitle">En jeu</div>
+      <div class="viewer-count">
+        <span>👥</span>
+        <span id="viewers">...</span>
+      </div>
+    </div>
+
+    <!-- Chat box à droite -->
+    <div class="chat-panel glass-effect">
+      <div class="chat-header">
+        <span class="chat-icon">💬</span>
+        <span>Chat en direct</span>
+      </div>
+      <div class="chat-messages" id="chatMessages">
+        <div class="chat-placeholder">
+          <p>Le chat s'affichera ici</p>
+          <p class="chat-hint">Connectez votre bot ou API Twitch</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Coins décoratifs -->
+    <div class="corner corner-tl"></div>
+    <div class="corner corner-bl"></div>
+  </div>
+
+  <script src="../../js/utils.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

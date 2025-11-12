@@ -1,0 +1,142 @@
+body {
+  background: transparent;
+}
+
+.overlay-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+/* Barre supérieure */
+.top-bar {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+  padding: var(--space-sm) var(--space-lg);
+  animation: slideDown 0.8s ease-out;
+}
+
+.stream-title {
+  font-weight: 600;
+  color: var(--text-color);
+  font-size: 0.95rem;
+}
+
+.viewer-count {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-weight: 600;
+  color: var(--text-color);
+  font-size: 0.9rem;
+}
+
+/* Panel chat */
+.chat-panel {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 380px;
+  height: calc(100vh - 40px);
+  display: flex;
+  flex-direction: column;
+  animation: slideInFromRight 0.8s ease-out;
+}
+
+.chat-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-md);
+  border-bottom: 1px solid rgba(224, 187, 228, 0.2);
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.chat-icon {
+  font-size: 1.2rem;
+}
+
+.chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--space-md);
+}
+
+.chat-placeholder {
+  text-align: center;
+  padding: var(--space-xl);
+  color: var(--text-color);
+  opacity: 0.6;
+}
+
+.chat-placeholder p {
+  margin-bottom: var(--space-sm);
+}
+
+.chat-hint {
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+/* Scrollbar */
+.chat-messages::-webkit-scrollbar {
+  width: 6px;
+}
+
+.chat-messages::-webkit-scrollbar-track {
+  background: rgba(224, 187, 228, 0.1);
+  border-radius: 10px;
+}
+
+.chat-messages::-webkit-scrollbar-thumb {
+  background: var(--soft-lavender);
+  border-radius: 10px;
+}
+
+/* Coins */
+.corner {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border: 3px solid rgba(224, 187, 228, 0.3);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(5px);
+  animation: fadeIn 1s ease-out;
+}
+
+.corner-tl {
+  top: 0;
+  left: 0;
+  border-right: none;
+  border-bottom: none;
+  border-radius: var(--radius-lg) 0 0 0;
+}
+
+.corner-bl {
+  bottom: 0;
+  left: 0;
+  border-right: none;
+  border-top: none;
+  border-radius: 0 0 0 var(--radius-lg);
+}
+
+@media (max-width: 768px) {
+  .chat-panel {
+    width: 300px;
+  }
+
+  .top-bar {
+    left: 10px;
+    top: 10px;
+  }
+
+  .corner {
+    width: 60px;
+    height: 60px;
+  }
+}

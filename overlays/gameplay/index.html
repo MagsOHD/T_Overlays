@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gameplay Overlay</title>
+  <link rel="stylesheet" href="../../css/global.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="overlay-frame">
+    <!-- Bordure supérieure discrète -->
+    <div class="top-bar glass-effect">
+      <div class="stream-info">
+        <span class="stream-title" id="streamTitle">En jeu</span>
+      </div>
+      <div class="viewer-count">
+        <span class="viewer-icon">👥</span>
+        <span id="viewers">...</span>
+      </div>
+    </div>
+
+    <!-- Coins arrondis décoratifs -->
+    <div class="corner corner-tl"></div>
+    <div class="corner corner-tr"></div>
+    <div class="corner corner-bl"></div>
+    <div class="corner corner-br"></div>
+  </div>
+
+  <script src="../../js/utils.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,99 +1,96 @@
-# 🎮 Overlays de Stream Professionnels
+# 🌸 Overlays de Stream - Safe Space & Design Pastel
 
-Un système complet d'overlays de streaming avec animations, sons et effets visuels pour OBS, Streamlabs, et autres logiciels de streaming.
+Un système complet d'overlays de streaming conçu avec bienveillance, accessibilité et esthétique douce.
 
-## ✨ Fonctionnalités
+## ✨ Philosophie du Design
 
-### Overlays Inclus
+Ces overlays sont créés pour offrir un **espace chaleureux et accueillant** où chacun·e peut se sentir bien. Le design utilise :
 
-1. **Starting Soon** - Écran de démarrage avec countdown
-   - Countdown personnalisable
-   - Animations fluides
-   - Affichage des réseaux sociaux
-   - Particules animées
+- **Couleurs pastel apaisantes** (lavande, pêche, menthe, rose doux)
+- **Animations douces** et non agressives
+- **Typographie lisible** et confortable
+- **Accessibilité** prioritaire (contraste, réduction de mouvement)
+- **Messages inclusifs** et bienveillants
 
-2. **Be Right Back (BRB)** - Écran de pause
-   - Timer en temps réel
-   - Animations de café
-   - Messages personnalisables
-   - Effets visuels dynamiques
+## 🎨 Overlays Inclus
 
-3. **Stream Ended** - Écran de fin
-   - Statistiques du stream
-   - Effets de confettis et feux d'artifice
-   - Remerciements animés
-   - Liens sociaux
+### 1. **Starting Soon** ⏳
+Écran de démarrage chaleureux avec :
+- Countdown clair et doux
+- Messages d'accueil rotatifs
+- Formes décoratives subtiles
+- Liens sociaux
 
-4. **Système d'Alertes** - Alertes en temps réel
-   - Follows
-   - Subscriptions
-   - Donations
-   - Raids
-   - Bits/Cheers
-   - Sons personnalisables
-   - Animations uniques par type
-   - File d'attente automatique
+### 2. **Be Right Back** ☕
+Pause agréable avec :
+- Timer en temps réel
+- Messages changeants aléatoires
+- Design apaisant
+- Rappel que le chat est actif
 
-5. **Chat Box** - Affichage du chat en direct
-   - Design moderne et transparent
-   - Badges (MOD, VIP, SUB)
-   - Couleurs personnalisables
-   - Limite de messages configurable
+### 3. **Stream Ended** 💜
+Fin de stream reconnaissante avec :
+- Remerciements chaleureux
+- Liens sociaux
+- Message pour le prochain stream
 
-## 📁 Structure du Projet
+### 4. **Gameplay** 🎮
+Overlay minimal pour le jeu :
+- Bordure discrète
+- Barre d'infos subtile
+- Ne gêne pas le gameplay
 
-```
-T_Overlays/
-├── overlays/
-│   ├── starting-soon/    # Overlay de démarrage
-│   ├── brb/              # Overlay Be Right Back
-│   ├── ended/            # Overlay de fin
-│   ├── alerts/           # Système d'alertes
-│   └── chat-box/         # Chat box en direct
-├── assets/
-│   ├── sounds/           # Fichiers audio
-│   ├── images/           # Images et logos
-│   └── fonts/            # Polices personnalisées
-├── css/
-│   └── global.css        # Styles globaux
-├── js/
-│   └── utils.js          # Utilitaires JS
-└── config.json           # Configuration centrale
-```
+### 5. **Gameplay + Chat** 🎮💬
+Version avec chat visible :
+- Chat à droite avec scroll
+- Design intégré au thème
+- Parfait pour l'interaction
 
-## 🚀 Installation
+### 6. **Alertes** 🔔
+Notifications douces pour :
+- Follows : "Bienvenue {user} ! 💜"
+- Subs : "{user} s'est abonné·e ! ✨"
+- Donations : "{user} a fait un don de {amount}€ 🌸"
+- Raids : "{user} arrive avec {viewers} personnes ! 🎉"
+- Bits : "{user} a envoyé {amount} bits ⭐"
 
-### 1. Télécharger le Projet
+## 🎨 Palette de Couleurs
 
-```bash
-git clone https://github.com/votre-username/T_Overlays.git
-cd T_Overlays
+```css
+Lavande doux : #E0BBE4
+Pêche : #FFDFD3
+Menthe : #B4E7CE
+Rose : #FFB3BA
+Bleu ciel : #A2D5F2
+Crème : #FFF9F5
+Texte : #5A4A42
 ```
 
-### 2. Configuration
+## 📦 Installation
 
-Éditez le fichier `config.json` pour personnaliser vos overlays :
+### 1. Personnaliser la Configuration
+
+Éditez `config.json` :
 
 ```json
 {
   "streamer": {
     "name": "Votre Nom",
+    "tagline": "Safe space pour chill et s'amuser 💜",
     "socials": {
       "twitch": "votre_twitch",
-      "twitter": "votre_twitter",
-      "youtube": "votre_youtube",
       "discord": "votre_discord"
     }
   },
   "theme": {
-    "primaryColor": "#6441a5",
-    "secondaryColor": "#9147ff",
-    "accentColor": "#f1c40f"
+    "primaryColor": "#E0BBE4",
+    "secondaryColor": "#FFDFD3",
+    "accentColor": "#B4E7CE"
   }
 }
 ```
 
-### 3. Ajouter vos Sons
+### 2. Ajouter vos Sons
 
 Placez vos fichiers audio dans `assets/sounds/` :
 - `follow.mp3`
@@ -101,220 +98,124 @@ Placez vos fichiers audio dans `assets/sounds/` :
 - `donation.mp3`
 - `raid.mp3`
 - `bits.mp3`
-- `start.mp3`
 
-Voir `assets/sounds/README.md` pour les recommandations et ressources.
+### 3. Configurer OBS/Streamlabs
 
-### 4. Ajouter votre Logo
+1. **Ajouter une Source** → Navigateur
+2. **URL locale** : `file:///CHEMIN_COMPLET/overlays/NOM_OVERLAY/index.html`
+3. **Dimensions** : 1920x1080
+4. **FPS** : 30+
+5. Cocher "Actualiser quand la scène devient active"
 
-Placez votre logo dans `assets/images/logo.png` pour qu'il apparaisse dans les overlays.
+## 🧪 Tester les Overlays
 
-## 🎥 Configuration OBS/Streamlabs
+Ouvrez `index.html` dans votre navigateur pour naviguer entre tous les overlays.
 
-### Ajouter un Overlay
-
-1. **Ouvrir OBS/Streamlabs**
-2. **Ajouter une Source** → **Navigateur**
-3. **Configurer la source :**
-   - **URL locale** : `file:///CHEMIN_COMPLET/T_Overlays/overlays/OVERLAY_NAME/index.html`
-   - **Largeur** : 1920
-   - **Hauteur** : 1080
-   - **FPS** : 30 ou plus
-   - Cocher "Actualiser le navigateur quand la scène devient active"
-
-### Exemples d'URLs
-
-```
-Starting Soon:
-file:///C:/Users/VotreNom/T_Overlays/overlays/starting-soon/index.html
-
-Alertes:
-file:///C:/Users/VotreNom/T_Overlays/overlays/alerts/index.html
-
-Chat Box:
-file:///C:/Users/VotreNom/T_Overlays/overlays/chat-box/index.html
+Pour tester les alertes :
+```javascript
+// Ouvrez la console (F12) sur overlays/alerts/index.html
+window.testAlert('follow')
+window.testAlert('subscription')
+window.testAlert('donation')
 ```
 
-**Note Linux/Mac :**
-- Linux : `file:///home/user/T_Overlays/overlays/...`
-- Mac : `file:///Users/votrenom/T_Overlays/overlays/...`
+## ♿ Accessibilité
 
-## 🔧 Personnalisation Avancée
+- **Contraste** : Tous les textes respectent WCAG AA
+- **Mouvements** : Respect de `prefers-reduced-motion`
+- **Focus** : Indicateurs visuels clairs
+- **Langage** : Écriture inclusive et bienveillante
 
-### Modifier les Couleurs
+## 💜 Valeurs du Projet
 
-Éditez `config.json` pour changer les couleurs du thème :
+- **Bienveillance** : Messages chaleureux et positifs
+- **Inclusivité** : Langage neutre et accueillant
+- **Accessibilité** : Design pour tou·tes
+- **Bien-être** : Couleurs et animations apaisantes
+- **Simplicité** : Interface épurée et claire
 
+## 🛠️ Structure du Projet
+
+```
+T_Overlays/
+├── overlays/
+│   ├── starting-soon/    # Écran de démarrage
+│   ├── brb/              # Pause
+│   ├── ended/            # Fin de stream
+│   ├── gameplay/         # Jeu minimal
+│   ├── gameplay-chat/    # Jeu + chat
+│   └── alerts/           # Notifications
+├── assets/
+│   ├── sounds/           # Fichiers audio
+│   └── images/           # Images/logos
+├── css/
+│   └── global.css        # Styles globaux
+├── js/
+│   └── utils.js          # Utilitaires
+├── config.json           # Configuration
+└── index.html            # Page de navigation
+```
+
+## 🎯 Cas d'Usage
+
+### Streamer Solo
+- Overlay minimal pendant le jeu
+- Alertes douces pour les interactions
+- BRB pour les pauses
+
+### Stream Communautaire
+- Chat visible pendant le jeu
+- Messages inclusifs et chaleureux
+- Emphasis sur la bienveillance
+
+### Just Chatting
+- Starting Soon accueillant
+- Alertes pour célébrer la communauté
+- Ended avec reconnaissance
+
+## 🌈 Personnalisation Avancée
+
+### Changer les Couleurs
+
+Dans `config.json`, modifiez les couleurs du thème :
 ```json
 {
   "theme": {
-    "primaryColor": "#6441a5",    // Couleur principale
-    "secondaryColor": "#9147ff",  // Couleur secondaire
-    "accentColor": "#f1c40f",     // Couleur d'accent
-    "backgroundColor": "#1a1a2e", // Couleur de fond
-    "textColor": "#ffffff"        // Couleur du texte
+    "primaryColor": "#VotreCouleur",
+    "secondaryColor": "#VotreCouleur",
+    "accentColor": "#VotreCouleur"
   }
 }
 ```
 
-### Modifier les Animations
+### Messages Personnalisés
 
-Les animations sont définies dans les fichiers CSS de chaque overlay. Exemple dans `overlays/alerts/style.css` :
-
-```css
-@keyframes alertSlideIn {
-  0% {
-    opacity: 0;
-    transform: translateY(-100px) scale(0.5);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-```
-
-### Durée des Alertes
-
-Modifiez la durée d'affichage dans `config.json` :
-
+Chaque overlay a des messages configurables :
 ```json
 {
-  "alerts": {
-    "follow": {
-      "duration": 5000,  // en millisecondes (5 secondes)
-      "volume": 0.7
-    }
+  "startingSoon": {
+    "welcomeMessages": [
+      "Votre message 1",
+      "Votre message 2"
+    ]
+  },
+  "brb": {
+    "messages": [
+      "Votre raison 1",
+      "Votre raison 2"
+    ]
   }
 }
 ```
-
-## 🧪 Tests
-
-### Tester les Alertes
-
-Ouvrez `overlays/alerts/index.html` dans votre navigateur et utilisez la console :
-
-```javascript
-// Tester une alerte de follow
-window.testAlert('follow');
-
-// Tester une alerte de donation
-window.testAlert('donation');
-
-// Tester avec des données personnalisées
-window.alertSystem.addAlert('subscription', {
-  user: 'TestUser',
-  tier: 3
-});
-```
-
-### Tester le Chat
-
-Ouvrez `overlays/chat-box/index.html` et utilisez :
-
-```javascript
-// Ajouter des messages de test
-window.testChat();
-
-// Ajouter un message personnalisé
-window.addChatMessage({
-  username: 'TestUser',
-  message: 'Hello World!',
-  color: '#ff0000',
-  badges: ['SUB']
-});
-```
-
-## 🔗 Intégration avec Streamlabs/StreamElements
-
-### StreamElements
-
-Pour intégrer les alertes avec StreamElements :
-
-1. Allez dans **StreamElements Dashboard**
-2. **My Overlays** → **Alertbox**
-3. **Settings** → **Custom HTML/CSS/JS**
-4. Copiez le code d'intégration depuis `docs/streamelements-integration.js`
-
-### Streamlabs
-
-Pour Streamlabs :
-
-1. **Streamlabs Dashboard** → **Alert Box**
-2. **Settings** → **Enable Custom HTML/CSS/JS**
-3. Utilisez le code d'intégration depuis `docs/streamlabs-integration.js`
-
-## 🎨 Captures d'Écran
-
-### Starting Soon
-![Starting Soon](docs/screenshots/starting-soon.png)
-
-### Alertes
-![Alerts](docs/screenshots/alerts.png)
-
-### BRB
-![BRB](docs/screenshots/brb.png)
-
-### Stream Ended
-![Ended](docs/screenshots/ended.png)
-
-## 📱 Responsive Design
-
-Tous les overlays sont responsive et s'adaptent à différentes résolutions :
-- 1920x1080 (Full HD) - Recommandé
-- 1280x720 (HD)
-- 2560x1440 (2K)
-- 3840x2160 (4K)
-
-## 🐛 Dépannage
-
-### Les sons ne fonctionnent pas
-- Vérifiez que les fichiers audio sont dans `assets/sounds/`
-- Vérifiez les permissions des fichiers
-- Dans OBS, assurez-vous que "Contrôler le son via OBS" est activé
-
-### L'overlay ne s'affiche pas
-- Vérifiez le chemin du fichier (doit être absolu)
-- Ouvrez la console du navigateur dans OBS (clic droit → Interact)
-- Vérifiez les erreurs JavaScript
-
-### Les animations sont saccadées
-- Augmentez le FPS dans les propriétés de la source navigateur (30+)
-- Désactivez l'accélération matérielle si problème persiste
-- Réduisez le nombre de particules dans `utils.js`
-
-### Les alertes ne s'affichent pas
-- Vérifiez que `enabled: true` dans `config.json`
-- Testez avec `window.testAlert()` dans la console
-- Vérifiez les erreurs dans la console
 
 ## 📝 License
 
-Ce projet est sous licence MIT. Vous êtes libre de l'utiliser, le modifier et le distribuer.
+MIT License - Utilisez librement et avec bienveillance 💜
 
-## 🤝 Contribution
+## 🙏 Remerciements
 
-Les contributions sont les bienvenues ! N'hésitez pas à :
-- Signaler des bugs
-- Proposer des améliorations
-- Ajouter de nouveaux overlays
-- Améliorer la documentation
-
-## 💬 Support
-
-Pour toute question ou problème :
-- Ouvrez une issue sur GitHub
-- Rejoignez notre Discord (si applicable)
-- Consultez la documentation complète
-
-## 🎉 Remerciements
-
-Merci d'utiliser ces overlays pour vos streams ! N'oubliez pas de :
-- ⭐ Star ce repo si vous l'aimez
-- 🐛 Signaler les bugs
-- 💡 Partager vos idées d'amélioration
+Merci d'utiliser ces overlays pour créer un espace accueillant et chaleureux sur vos streams !
 
 ---
 
-**Bon stream ! 🎮✨**
+**Créé avec 💜 pour la communauté streaming**

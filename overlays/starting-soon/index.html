@@ -8,96 +8,50 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <div class="background-particles"></div>
+  <div class="container gradient-bg">
+    <!-- Formes décoratives douces -->
+    <div class="decorative-shape" style="width: 300px; height: 300px; background: var(--soft-lavender); top: 10%; left: 5%;"></div>
+    <div class="decorative-shape" style="width: 250px; height: 250px; background: var(--soft-mint); bottom: 15%; right: 8%; animation-delay: 2s;"></div>
+    <div class="decorative-shape" style="width: 200px; height: 200px; background: var(--soft-peach); top: 50%; right: 15%; animation-delay: 4s;"></div>
 
     <div class="content">
-      <div class="logo-container">
-        <div class="logo-glow"></div>
-        <img src="../../assets/images/logo.png" alt="Logo" class="logo" onerror="this.style.display='none'">
+      <!-- En-tête doux -->
+      <div class="header slide-down">
+        <h1 class="title">Le stream commence bientôt</h1>
+        <p class="subtitle" id="subtitle">Un espace pour se détendre et s'amuser ensemble 💜</p>
       </div>
 
-      <h1 class="main-title">
-        <span class="word">LE</span>
-        <span class="word">STREAM</span>
-        <span class="word">COMMENCE</span>
-        <span class="word">BIENTÔT</span>
-      </h1>
-
-      <div class="countdown-container glass-effect">
-        <div class="countdown-item">
-          <span class="countdown-value" id="minutes">05</span>
-          <span class="countdown-label">MIN</span>
-        </div>
-        <div class="countdown-separator">:</div>
-        <div class="countdown-item">
-          <span class="countdown-value" id="seconds">00</span>
-          <span class="countdown-label">SEC</span>
-        </div>
-      </div>
-
-      <div class="info-text">
-        <p class="preparing">Préparation du stream en cours...</p>
-        <p class="subtitle" id="subtitle">Cyberpunk, Arc Raiders & chill</p>
-      </div>
-
-      <div class="cat-animation">
-        <div class="cat-container">
-          <div class="cat">
-            <div class="cat-head">
-              <div class="cat-ear cat-ear-left"></div>
-              <div class="cat-ear cat-ear-right"></div>
-              <div class="cat-face">
-                <div class="cat-eye cat-eye-left">
-                  <div class="cat-pupil"></div>
-                </div>
-                <div class="cat-eye cat-eye-right">
-                  <div class="cat-pupil"></div>
-                </div>
-                <div class="cat-nose"></div>
-                <div class="cat-mouth">
-                  <div class="cat-whisker whisker-left-top"></div>
-                  <div class="cat-whisker whisker-left-bottom"></div>
-                  <div class="cat-whisker whisker-right-top"></div>
-                  <div class="cat-whisker whisker-right-bottom"></div>
-                </div>
-              </div>
-            </div>
-            <div class="cat-body">
-              <div class="cat-paw cat-paw-left"></div>
-              <div class="cat-paw cat-paw-right"></div>
-            </div>
-            <div class="cat-tail"></div>
+      <!-- Countdown épuré -->
+      <div class="countdown-wrapper slide-up">
+        <div class="countdown glass-effect">
+          <div class="time-block">
+            <span class="time-value" id="minutes">05</span>
+            <span class="time-label">min</span>
           </div>
-          <div class="controller-icon">🎮</div>
+          <span class="time-separator">:</span>
+          <div class="time-block">
+            <span class="time-value" id="seconds">00</span>
+            <span class="time-label">sec</span>
+          </div>
         </div>
       </div>
 
-      <div class="fun-fact glass-effect">
-        <div class="fun-fact-icon">💡</div>
-        <div class="fun-fact-text" id="funFact">Chargement...</div>
+      <!-- Message d'accueil rotatif -->
+      <div class="welcome-message gentle-pulse">
+        <p class="message-text" id="welcomeMessage">Bienvenue dans cet espace bienveillant</p>
       </div>
 
-      <div class="socials">
-        <div class="social-item">
-          <span class="social-icon">📺</span>
-          <span class="social-text" id="twitch">twitch.tv/votre_channel</span>
+      <!-- Infos sociales minimalistes -->
+      <div class="social-links fade-in">
+        <div class="social-link">
+          <span>📺</span>
+          <span id="twitch">twitch.tv/votre_channel</span>
         </div>
-        <div class="social-item">
-          <span class="social-icon">🐦</span>
-          <span class="social-text" id="twitter">@votre_twitter</span>
-        </div>
-        <div class="social-item">
-          <span class="social-icon">💬</span>
-          <span class="social-text" id="discord">discord.gg/votre_discord</span>
+        <div class="social-link">
+          <span>💬</span>
+          <span id="discord">discord.gg/votre_discord</span>
         </div>
       </div>
-    </div>
-
-    <div class="animated-shapes">
-      <div class="shape shape-1"></div>
-      <div class="shape shape-2"></div>
-      <div class="shape shape-3"></div>
     </div>
   </div>
 

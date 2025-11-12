@@ -8,74 +8,37 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <div class="fireworks-container"></div>
+  <div class="container gradient-bg">
+    <div class="decorative-shape" style="width: 320px; height: 320px; background: var(--soft-pink); top: 8%; left: 10%;"></div>
+    <div class="decorative-shape" style="width: 270px; height: 270px; background: var(--soft-lavender); bottom: 12%; right: 8%; animation-delay: 2s;"></div>
+    <div class="decorative-shape" style="width: 230px; height: 230px; background: var(--soft-mint); top: 45%; right: 12%; animation-delay: 4s;"></div>
 
     <div class="content">
-      <div class="icon-animation">
-        <div class="heart-icon">💜</div>
+      <div class="heart-icon gentle-float">💜</div>
+
+      <h1 class="title slide-down">Merci d'avoir été là</h1>
+      
+      <p class="message fade-in" id="message">Prenez soin de vous, à très bientôt !</p>
+
+      <div class="next-stream glass-effect slide-up">
+        <p id="nextStream">On se retrouve bientôt pour de nouvelles aventures ✨</p>
       </div>
 
-      <h1 class="main-title">
-        <span class="word">MERCI</span>
-        <span class="word">D'AVOIR</span>
-        <span class="word">REGARDÉ</span>
-        <span class="word">!</span>
-      </h1>
-
-      <div class="thank-you-message">
-        <p class="message-line">Le stream est terminé</p>
-        <p class="message-line highlight">À très bientôt ! 🎮</p>
-      </div>
-
-      <div class="stats-container glass-effect">
-        <div class="stat-item">
-          <div class="stat-icon">👥</div>
-          <div class="stat-value" id="viewers">0</div>
-          <div class="stat-label">Viewers max</div>
+      <div class="social-grid fade-in">
+        <div class="social-card glass-effect">
+          <span class="social-emoji">📺</span>
+          <span id="twitch">twitch.tv/votre_channel</span>
         </div>
-        <div class="stat-divider"></div>
-        <div class="stat-item">
-          <div class="stat-icon">⏱️</div>
-          <div class="stat-value" id="duration">0h00</div>
-          <div class="stat-label">Durée du stream</div>
-        </div>
-        <div class="stat-divider"></div>
-        <div class="stat-item">
-          <div class="stat-icon">❤️</div>
-          <div class="stat-value" id="followers">+0</div>
-          <div class="stat-label">Nouveaux follows</div>
+        <div class="social-card glass-effect">
+          <span class="social-emoji">💬</span>
+          <span id="discord">discord.gg/votre_discord</span>
         </div>
       </div>
 
-      <div class="cta-section">
-        <p class="cta-text">💜 N'oubliez pas de suivre la chaîne ! 💜</p>
-        <div class="social-links">
-          <div class="social-link">
-            <span class="social-icon">📺</span>
-            <span id="twitch">twitch.tv/votre_channel</span>
-          </div>
-          <div class="social-link">
-            <span class="social-icon">🐦</span>
-            <span id="twitter">@votre_twitter</span>
-          </div>
-          <div class="social-link">
-            <span class="social-icon">📺</span>
-            <span id="youtube">youtube.com/@votre_channel</span>
-          </div>
-          <div class="social-link">
-            <span class="social-icon">💬</span>
-            <span id="discord">discord.gg/votre_discord</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="next-stream">
-        <p>🗓️ Prochain stream : Bientôt !</p>
+      <div class="farewell">
+        <p>À bientôt dans cet espace bienveillant 🌸</p>
       </div>
     </div>
-
-    <div class="confetti-container"></div>
   </div>
 
   <script src="../../js/utils.js"></script>
