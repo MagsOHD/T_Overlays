@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Overlays Organiques - Stream Cozy</title>
+  <link rel="stylesheet" href="css/organic-global.css">
+  <style>
+    body {
+      min-height: 100vh;
+      padding: 40px 20px;
+      overflow-y: auto;
+      background: linear-gradient(135deg, var(--cream) 0%, var(--butter) 50%, var(--peach) 100%);
+    }
+
+    .main-container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 60px;
+      animation: fadeIn 1s ease-in;
+    }
+
+    .header h1 {
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      margin-bottom: var(--space-md);
+      color: var(--text-dark);
+      font-weight: 700;
+    }
+
+    .header p {
+      font-size: clamp(1rem, 2vw, 1.3rem);
+      color: var(--text-light);
+      font-weight: 500;
+    }
+
+    .scenes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: var(--space-xl);
+      margin-bottom: 60px;
+    }
+
+    .scene-card {
+      background: var(--glass-bg);
+      backdrop-filter: var(--glass-blur);
+      border: 2px solid var(--glass-border);
+      border-radius: var(--radius-blob-md);
+      padding: var(--space-xl);
+      box-shadow: var(--shadow-medium);
+      transition: all 0.3s ease;
+      animation: slideUp 0.6s ease-out both;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .scene-card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(212, 197, 249, 0.1) 0%, transparent 70%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .scene-card:hover::before {
+      opacity: 1;
+    }
+
+    .scene-card:nth-child(1) { animation-delay: 0.1s; }
+    .scene-card:nth-child(2) { animation-delay: 0.2s; }
+    .scene-card:nth-child(3) { animation-delay: 0.3s; }
+    .scene-card:nth-child(4) { animation-delay: 0.4s; }
+    .scene-card:nth-child(5) { animation-delay: 0.5s; }
+    .scene-card:nth-child(6) { animation-delay: 0.6s; }
+
+    .scene-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-large);
+    }
+
+    .scene-icon {
+      font-size: 4rem;
+      margin-bottom: var(--space-md);
+      display: block;
+      filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
+    }
+
+    .scene-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: var(--space-sm);
+    }
+
+    .scene-desc {
+      font-size: 1.1rem;
+      color: var(--text-light);
+      margin-bottom: var(--space-lg);
+      line-height: 1.6;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: var(--space-sm) var(--space-lg);
+      background: var(--glass-bg);
+      backdrop-filter: var(--glass-blur);
+      border: 2px solid var(--glass-border);
+      border-radius: var(--radius-blob-sm);
+      color: var(--text-dark);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-medium);
+      border-color: var(--lavender);
+    }
+
+    .info-section {
+      background: var(--glass-bg);
+      backdrop-filter: var(--glass-blur);
+      border: 2px solid var(--glass-border);
+      border-radius: var(--radius-blob-lg);
+      padding: var(--space-xl);
+      box-shadow: var(--shadow-medium);
+      margin-top: 40px;
+      animation: fadeIn 1s ease-in 0.8s both;
+    }
+
+    .info-section h3 {
+      margin-bottom: var(--space-md);
+      color: var(--text-dark);
+      font-size: 1.6rem;
+    }
+
+    .info-section p, .info-section li {
+      margin-bottom: var(--space-sm);
+      line-height: 1.7;
+      color: var(--text-dark);
+    }
+
+    .info-section ul {
+      margin-left: var(--space-lg);
+      margin-top: var(--space-sm);
+    }
+
+    .info-section code {
+      background: rgba(212, 197, 249, 0.2);
+      padding: 4px 12px;
+      border-radius: var(--radius-sm);
+      font-family: 'Courier New', monospace;
+      color: var(--text-dark);
+      font-size: 0.95em;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="main-container">
+    <div class="header">
+      <h1>Overlays de Stream Organiques 🌿</h1>
+      <p>Un espace cozy et bienveillant pour vos streams</p>
+    </div>
+
+    <div class="scenes-grid">
+      <div class="scene-card">
+        <span class="scene-icon">⏳</span>
+        <h2 class="scene-title">Starting Soon</h2>
+        <p class="scene-desc">Écran de démarrage avec countdown et formes organiques douces.</p>
+        <a href="scenes/starting-soon/index.html" class="btn" target="_blank">Ouvrir la scène</a>
+      </div>
+
+      <div class="scene-card">
+        <span class="scene-icon">☕</span>
+        <h2 class="scene-title">Be Right Back</h2>
+        <p class="scene-desc">Pause avec timer et messages chaleureux qui changent automatiquement.</p>
+        <a href="scenes/brb/index.html" class="btn" target="_blank">Ouvrir la scène</a>
+      </div>
+
+      <div class="scene-card">
+        <span class="scene-icon">💜</span>
+        <h2 class="scene-title">Stream Ended</h2>
+        <p class="scene-desc">Fin de stream avec remerciements et liens vers vos réseaux sociaux.</p>
+        <a href="scenes/ending/index.html" class="btn" target="_blank">Ouvrir la scène</a>
+      </div>
+
+      <div class="scene-card">
+        <span class="scene-icon">🎮</span>
+        <h2 class="scene-title">Gameplay</h2>
+        <p class="scene-desc">Overlay minimal pour le jeu avec bordure discrète et formes organiques.</p>
+        <a href="scenes/gameplay/index.html" class="btn" target="_blank">Ouvrir la scène</a>
+      </div>
+
+      <div class="scene-card">
+        <span class="scene-icon">💬</span>
+        <h2 class="scene-title">Just Chatting</h2>
+        <p class="scene-desc">Scène pour discussions avec espaces pour webcam et chat.</p>
+        <a href="scenes/just-chatting/index.html" class="btn" target="_blank">Ouvrir la scène</a>
+      </div>
+
+      <div class="scene-card">
+        <span class="scene-icon">🔔</span>
+        <h2 class="scene-title">Alertes</h2>
+        <p class="scene-desc">Notifications organiques pour follows, subs, dons, raids et bits.</p>
+        <a href="scenes/alerts/index.html?test=follow" class="btn" target="_blank">Tester les alertes</a>
+      </div>
+    </div>
+
+    <div class="info-section">
+      <h3>🌸 Design organique et accueillant</h3>
+      <p>Ces overlays utilisent des formes organiques (blobs) et des couleurs pastel apaisantes pour créer une ambiance cozy et bienveillante. Chaque animation est pensée pour être douce et non intrusive.</p>
+
+      <h3 style="margin-top: var(--space-xl);">⚙️ Configuration</h3>
+      <p>Personnalisez tout dans <code>config-organic.json</code> :</p>
+      <ul>
+        <li>Vos informations et réseaux sociaux</li>
+        <li>Les messages pour chaque scène</li>
+        <li>Les paramètres des alertes (durée, sons, messages)</li>
+        <li>Les couleurs du thème</li>
+      </ul>
+
+      <h3 style="margin-top: var(--space-xl);">📖 Utilisation dans OBS/Streamlabs</h3>
+      <p><strong>1.</strong> Ajouter une source → Navigateur<br>
+      <strong>2.</strong> URL locale : <code>file:///chemin/complet/vers/scenes/nom-scene/index.html</code><br>
+      <strong>3.</strong> Dimensions : 1920x1080 (résolution 1080p)<br>
+      <strong>4.</strong> Cocher "Actualiser quand la scène devient active"</p>
+
+      <h3 style="margin-top: var(--space-xl);">🧪 Tests des alertes</h3>
+      <p>Testez les différents types d'alertes en ajoutant <code>?test=TYPE</code> à l'URL :</p>
+      <ul>
+        <li><code>?test=follow</code> - Tester un follow</li>
+        <li><code>?test=subscription</code> - Tester un abonnement</li>
+        <li><code>?test=donation</code> - Tester un don</li>
+        <li><code>?test=raid</code> - Tester un raid</li>
+        <li><code>?test=bits</code> - Tester des bits</li>
+      </ul>
+
+      <h3 style="margin-top: var(--space-xl);">🎨 Personnalisation avancée</h3>
+      <p>Les overlays utilisent des variables CSS personnalisables dans <code>css/organic-global.css</code>. Vous pouvez modifier les couleurs, espacements, rayons de bordure et animations selon vos préférences.</p>
+    </div>
+  </div>
+</body>
+</html>

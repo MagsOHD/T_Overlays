@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gameplay Overlay</title>
+  <link rel="stylesheet" href="../../css/organic-global.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="overlay-container">
+    <!-- Bordure organique subtile -->
+    <div class="frame-border"></div>
+
+    <!-- Coins décoratifs organiques -->
+    <div class="corner corner-top-left">
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,0 Q30,0 50,20 Q70,40 80,70 Q85,85 100,100 L0,100 Z" fill="var(--glass-bg)" opacity="0.5"/>
+      </svg>
+    </div>
+
+    <div class="corner corner-top-right">
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <path d="M100,0 Q70,0 50,20 Q30,40 20,70 Q15,85 0,100 L100,100 Z" fill="var(--glass-bg)" opacity="0.5"/>
+      </svg>
+    </div>
+
+    <div class="corner corner-bottom-left">
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,100 Q30,100 50,80 Q70,60 80,30 Q85,15 100,0 L0,0 Z" fill="var(--glass-bg)" opacity="0.5"/>
+      </svg>
+    </div>
+
+    <div class="corner corner-bottom-right">
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <path d="M100,100 Q70,100 50,80 Q30,60 20,30 Q15,15 0,0 L100,0 Z" fill="var(--glass-bg)" opacity="0.5"/>
+      </svg>
+    </div>
+
+    <!-- Zone webcam (en bas à gauche, peut être positionnée dans OBS) -->
+    <div class="webcam-frame">
+      <div class="webcam-border"></div>
+    </div>
+
+    <!-- Petites formes organiques décoratives (très discrètes) -->
+    <svg class="deco-blob deco-top" viewBox="0 0 200 200">
+      <path fill="var(--lavender)" d="M44.7,-76.4C58.8,-69.2,71.8,-59.1,79.6,-45.8C87.4,-32.6,90,-16.3,88.5,-0.9C87,14.6,81.4,29.2,73.1,42.3C64.8,55.4,53.8,67,40.4,74.3C27,81.6,11.2,84.6,-4.5,83.4C-20.2,82.2,-35.8,76.8,-48.7,68.4C-61.6,60,-71.8,48.6,-77.9,35.2C-84,21.8,-86,6.4,-84.1,-8.3C-82.2,-23,-76.4,-37,-66.8,-48.1C-57.2,-59.2,-43.8,-67.4,-29.7,-74.5C-15.6,-81.6,-0.8,-87.6,13.5,-86.8C27.8,-86,30.6,-83.6,44.7,-76.4Z" transform="translate(100 100)" opacity="0.15"/>
+    </svg>
+
+    <svg class="deco-blob deco-bottom" viewBox="0 0 200 200">
+      <path fill="var(--mint)" d="M39.5,-65.4C51.4,-58.1,61.5,-47.9,68.2,-35.8C74.9,-23.7,78.2,-9.7,77.4,3.9C76.6,17.5,71.7,30.7,64.1,42.5C56.5,54.3,46.2,64.7,33.8,70.9C21.4,77.1,6.9,79.1,-7.3,77.8C-21.5,76.5,-35.7,71.9,-47.2,64.2C-58.7,56.5,-67.5,45.7,-72.7,33.4C-77.9,21.1,-79.5,7.3,-77.8,-5.9C-76.1,-19.1,-71.1,-31.7,-63.3,-42.7C-55.5,-53.7,-45,-63.1,-32.8,-70C-20.6,-76.9,-6.8,-81.3,5.8,-79.9C18.4,-78.5,27.6,-72.7,39.5,-65.4Z" transform="translate(100 100)" opacity="0.15"/>
+    </svg>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

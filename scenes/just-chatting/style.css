@@ -1,0 +1,292 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--cream) 0%, var(--butter) 50%, var(--peach) 100%);
+  font-family: 'DM Sans', sans-serif;
+}
+
+.overlay-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* Background organique */
+.organic-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+}
+
+/* SVG Blobs */
+.svg-blob {
+  position: absolute;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.blob-1 {
+  width: 280px;
+  height: 280px;
+  top: 8%;
+  left: 10%;
+  animation: floatSoft 10s ease-in-out infinite;
+}
+
+.blob-2 {
+  width: 250px;
+  height: 250px;
+  bottom: 12%;
+  left: 8%;
+  animation: floatSoft 12s ease-in-out infinite reverse;
+}
+
+.blob-3 {
+  width: 220px;
+  height: 220px;
+  top: 40%;
+  right: 8%;
+  animation: floatSoft 14s ease-in-out infinite;
+}
+
+/* Contenu principal */
+.main-content {
+  position: absolute;
+  top: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 900px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  z-index: 10;
+}
+
+/* Header section */
+.header-section {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+  padding: var(--space-lg) var(--space-xl);
+  border-radius: var(--radius-blob-md);
+  position: relative;
+  overflow: hidden;
+}
+
+.header-section::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(212, 197, 249, 0.15) 0%, transparent 70%);
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+
+.header-icon {
+  font-size: 4rem;
+  position: relative;
+  z-index: 1;
+  filter: drop-shadow(0 4px 12px rgba(212, 197, 249, 0.3));
+}
+
+.header-text {
+  flex: 1;
+  position: relative;
+  z-index: 1;
+}
+
+.header-text h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: var(--space-xs);
+  letter-spacing: -0.02em;
+}
+
+.header-text p {
+  font-size: 1.4rem;
+  color: var(--text-light);
+  font-weight: 500;
+}
+
+/* Topic section */
+.topic-section {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-lg) var(--space-xl);
+  border-radius: var(--radius-blob-md);
+  position: relative;
+  overflow: hidden;
+  min-height: 120px;
+}
+
+.topic-section::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(184, 230, 213, 0.12) 0%, transparent 70%);
+  animation: pulseGlow 5s ease-in-out infinite;
+}
+
+.topic-icon {
+  font-size: 3rem;
+  position: relative;
+  z-index: 1;
+}
+
+.topic-text {
+  flex: 1;
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: var(--text-dark);
+  position: relative;
+  z-index: 1;
+  transition: opacity 0.5s ease;
+}
+
+/* Socials bar */
+.socials-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-md);
+  padding: var(--space-md) var(--space-lg);
+  border-radius: var(--radius-blob-sm);
+}
+
+.social-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.social-emoji {
+  font-size: 1.4rem;
+}
+
+.social-handle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.social-separator {
+  font-size: 1.2rem;
+  color: var(--text-light);
+  opacity: 0.5;
+}
+
+/* Zone webcam (placeholder pour positioning dans OBS) */
+.webcam-placeholder {
+  position: absolute;
+  bottom: 40px;
+  left: 40px;
+  width: 480px;
+  height: 480px;
+  border-radius: 50% 45% 55% 50% / 50% 55% 45% 50%;
+  border: 4px solid var(--glass-border);
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  box-shadow: var(--shadow-large);
+  animation: webcamMorph 14s ease-in-out infinite;
+  z-index: 5;
+}
+
+@keyframes webcamMorph {
+  0%, 100% {
+    border-radius: 50% 45% 55% 50% / 50% 55% 45% 50%;
+  }
+  25% {
+    border-radius: 45% 55% 50% 50% / 55% 45% 50% 50%;
+  }
+  50% {
+    border-radius: 50% 50% 45% 55% / 50% 50% 55% 45%;
+  }
+  75% {
+    border-radius: 55% 45% 50% 50% / 45% 55% 50% 50%;
+  }
+}
+
+/* Zone chat (placeholder pour positioning dans OBS) */
+.chat-placeholder {
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+  width: 420px;
+  height: 650px;
+  border-radius: var(--radius-blob-lg);
+  border: 3px solid var(--glass-border);
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  box-shadow: var(--shadow-large);
+  z-index: 5;
+}
+
+/* Décorations de coins */
+.corner-deco {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border: 3px solid rgba(212, 197, 249, 0.2);
+  z-index: 2;
+}
+
+.corner-top-left {
+  top: 20px;
+  left: 20px;
+  border-right: none;
+  border-bottom: none;
+  border-radius: 24px 0 0 0;
+}
+
+.corner-top-right {
+  top: 20px;
+  right: 20px;
+  border-left: none;
+  border-bottom: none;
+  border-radius: 0 24px 0 0;
+}
+
+.corner-bottom-left {
+  bottom: 20px;
+  left: 20px;
+  border-right: none;
+  border-top: none;
+  border-radius: 0 0 0 24px;
+}
+
+.corner-bottom-right {
+  bottom: 20px;
+  right: 20px;
+  border-left: none;
+  border-top: none;
+  border-radius: 0 0 24px 0;
+}
+
+/* Mode sans placeholders (pour utiliser uniquement les éléments centraux) */
+body.no-placeholders .webcam-placeholder,
+body.no-placeholders .chat-placeholder {
+  display: none;
+}
+
+/* Responsive preview */
+@media (max-width: 1920px) {
+  .overlay-container {
+    transform-origin: top left;
+  }
+}

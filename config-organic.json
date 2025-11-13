@@ -1,0 +1,112 @@
+{
+  "streamer": {
+    "name": "Votre Nom",
+    "tagline": "Espace cozy pour jouer et chill 🌿",
+    "socials": {
+      "twitch": "votre_twitch",
+      "twitter": "votre_twitter",
+      "youtube": "votre_youtube",
+      "discord": "votre_discord",
+      "instagram": "votre_instagram"
+    }
+  },
+  "theme": {
+    "style": "organic-cozy",
+    "colors": {
+      "primary": "#D4C5F9",
+      "secondary": "#FFD4C4",
+      "accent": "#B8E6D5",
+      "background": "#FFF8F0"
+    }
+  },
+  "scenes": {
+    "startingSoon": {
+      "title": "On arrive bientôt",
+      "subtitle": "Installation en cours... ☕",
+      "countdownMinutes": 5,
+      "messages": [
+        "Préparez vos snacks 🍿",
+        "On se retrouve dans un instant",
+        "Bienvenue ! Installez-vous",
+        "Le stream commence bientôt"
+      ]
+    },
+    "brb": {
+      "title": "Petite pause",
+      "messages": [
+        "Pause pipi 🚽",
+        "Pause café ☕",
+        "Pause snack 🍪",
+        "Je reviens vite !",
+        "Petit moment pour moi",
+        "Pause hydratation 💧"
+      ],
+      "showTimer": true
+    },
+    "ending": {
+      "title": "Merci d'avoir été là !",
+      "subtitle": "C'était super cool de jouer avec vous 💜",
+      "nextStreamMessage": "On se retrouve bientôt pour de nouvelles aventures",
+      "callToAction": "N'oubliez pas de follow si vous avez aimé !"
+    },
+    "justChatting": {
+      "title": "Just Chatting",
+      "showWebcam": true,
+      "showChat": true
+    }
+  },
+  "alerts": {
+    "follow": {
+      "enabled": true,
+      "duration": 4500,
+      "sound": "assets/sounds/follow.mp3",
+      "volume": 0.6,
+      "message": "{user} vient de follow !",
+      "submessage": "Bienvenue parmi nous 💜",
+      "emoji": "💜"
+    },
+    "subscription": {
+      "enabled": true,
+      "duration": 5500,
+      "sound": "assets/sounds/sub.mp3",
+      "volume": 0.65,
+      "message": "{user} s'est abonné !",
+      "submessage": "Merci infiniment ✨",
+      "emoji": "⭐"
+    },
+    "donation": {
+      "enabled": true,
+      "duration": 6000,
+      "sound": "assets/sounds/donation.mp3",
+      "volume": 0.7,
+      "message": "{user} a donné {amount}€",
+      "submessage": "Tu es incroyable !",
+      "emoji": "🎁"
+    },
+    "raid": {
+      "enabled": true,
+      "duration": 7000,
+      "sound": "assets/sounds/raid.mp3",
+      "volume": 0.75,
+      "message": "{user} raid avec {viewers} viewers !",
+      "submessage": "Bienvenue à tous ! 🎉",
+      "emoji": "🚀"
+    },
+    "bits": {
+      "enabled": true,
+      "duration": 4500,
+      "sound": "assets/sounds/bits.mp3",
+      "volume": 0.6,
+      "message": "{user} a envoyé {amount} bits",
+      "submessage": "Merci pour le soutien !",
+      "emoji": "💎"
+    }
+  },
+  "sounds": {
+    "volume": {
+      "master": 0.7,
+      "alerts": 0.6,
+      "ambient": 0.3
+    }
+  }
+}

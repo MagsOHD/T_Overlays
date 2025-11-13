@@ -1,0 +1,154 @@
+body {
+  background: linear-gradient(135deg, var(--butter) 0%, var(--peach) 50%, var(--lavender) 100%);
+}
+
+.organic-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.content {
+  gap: var(--space-lg);
+  text-align: center;
+  max-width: 800px;
+}
+
+/* Icon flottant dans blob */
+.icon-blob {
+  width: 180px;
+  height: 180px;
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.icon-blob::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 212, 196, 0.15) 0%, transparent 70%);
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+
+.icon {
+  font-size: 5rem;
+  position: relative;
+  z-index: 1;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+}
+
+/* Titre */
+.title {
+  color: var(--text-dark);
+  margin: var(--space-lg) 0 var(--space-md);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* Message rotatif */
+.message {
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+  color: var(--text-dark);
+  font-weight: 500;
+  opacity: 0.9;
+  margin-bottom: var(--space-lg);
+  transition: opacity 0.5s ease;
+}
+
+/* Timer container */
+.timer-container {
+  padding: var(--space-lg) var(--space-xl);
+  border-radius: var(--radius-blob-md);
+  margin: var(--space-md) 0;
+  position: relative;
+  overflow: hidden;
+  min-width: 280px;
+}
+
+.timer-container::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(184, 230, 213, 0.12) 0%, transparent 70%);
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+
+.timer {
+  font-size: clamp(3.5rem, 8vw, 5rem);
+  font-weight: 700;
+  color: var(--mint);
+  line-height: 1;
+  font-family: 'Outfit', sans-serif;
+  position: relative;
+  z-index: 1;
+  letter-spacing: 0.05em;
+}
+
+/* Texte informatif */
+.info-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  margin-top: var(--space-lg);
+}
+
+.info-text p {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  color: var(--text-dark);
+  font-weight: 500;
+  opacity: 0.85;
+}
+
+/* Animation spécifique pour le blob de l'icône */
+.icon-blob.blob {
+  animation: blobMorph 10s ease-in-out infinite, floatSoft 6s ease-in-out infinite;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .icon-blob {
+    width: 140px;
+    height: 140px;
+  }
+
+  .icon {
+    font-size: 4rem;
+  }
+
+  .timer-container {
+    padding: var(--space-md) var(--space-lg);
+    min-width: 220px;
+  }
+
+  .info-text {
+    font-size: 0.95rem;
+  }
+}
+
+/* Animation de pulsation pour le timer */
+@keyframes timerPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+}
+
+.timer {
+  animation: timerPulse 2s ease-in-out infinite;
+}

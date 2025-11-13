@@ -1,0 +1,334 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  background: transparent;
+  font-family: 'DM Sans', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.alerts-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* Alert box */
+.alert-box {
+  width: 800px;
+  padding: var(--space-xl);
+  border-radius: var(--radius-blob-lg);
+  position: relative;
+  overflow: hidden;
+  transform: scale(0) rotate(-5deg);
+  opacity: 0;
+  box-shadow: var(--shadow-large);
+  border: 2px solid var(--glass-border);
+}
+
+/* États d'animation */
+.alert-box.show {
+  animation: alertEnter 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.alert-box.hide {
+  animation: alertExit 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) forwards;
+}
+
+@keyframes alertEnter {
+  0% {
+    transform: scale(0) rotate(-5deg);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.1) rotate(2deg);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes alertExit {
+  0% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.8) translateY(-50px) rotate(5deg);
+    opacity: 0;
+  }
+}
+
+/* Formes de fond animées */
+.alert-bg-shapes {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+  filter: url(#gooey);
+}
+
+.bg-shape {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(20px);
+  opacity: 0;
+}
+
+.alert-box.show .bg-shape {
+  animation: shapeFloat 3s ease-in-out infinite;
+}
+
+.bg-shape.shape-1 {
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, var(--lavender) 0%, transparent 70%);
+  top: -50px;
+  left: -50px;
+  animation-delay: 0s;
+}
+
+.bg-shape.shape-2 {
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle, var(--mint) 0%, transparent 70%);
+  bottom: -60px;
+  right: -60px;
+  animation-delay: 1s;
+}
+
+.bg-shape.shape-3 {
+  width: 180px;
+  height: 180px;
+  background: radial-gradient(circle, var(--peach) 0%, transparent 70%);
+  top: 50%;
+  right: -40px;
+  animation-delay: 2s;
+}
+
+@keyframes shapeFloat {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translate(20px, -20px) scale(1.1);
+    opacity: 0.5;
+  }
+}
+
+/* Contenu de l'alerte */
+.alert-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: var(--space-xl);
+}
+
+/* Icon wrapper */
+.alert-icon-wrapper {
+  flex-shrink: 0;
+}
+
+.icon-blob {
+  width: 160px;
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  border: 2px solid var(--glass-border);
+  position: relative;
+  overflow: hidden;
+}
+
+.icon-blob::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+
+.alert-box.show .icon-blob {
+  animation: blobMorph 8s ease-in-out infinite, iconPulse 2s ease-in-out infinite;
+}
+
+@keyframes iconPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.08);
+  }
+}
+
+.alert-icon {
+  font-size: 5rem;
+  position: relative;
+  z-index: 1;
+  filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.2));
+  animation: iconBounce 1s ease-in-out;
+}
+
+@keyframes iconBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-15px);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  75% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Texte de l'alerte */
+.alert-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.alert-message {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  line-height: 1.2;
+  opacity: 0;
+  transform: translateX(-30px);
+}
+
+.alert-box.show .alert-message {
+  animation: textSlideIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s forwards;
+}
+
+.alert-submessage {
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: var(--text-light);
+  opacity: 0;
+  transform: translateX(-30px);
+}
+
+.alert-box.show .alert-submessage {
+  animation: textSlideIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.4s forwards;
+}
+
+@keyframes textSlideIn {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Particules */
+.particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.particle {
+  position: absolute;
+  font-size: 2rem;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.particle.animate {
+  animation: particleFloat 3s ease-out forwards;
+}
+
+@keyframes particleFloat {
+  0% {
+    opacity: 0;
+    transform: translateY(0) scale(0);
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-200px) scale(1.5) rotate(180deg);
+  }
+}
+
+/* Types d'alertes spécifiques */
+.alert-box.type-follow .icon-blob {
+  border-color: rgba(212, 197, 249, 0.5);
+}
+
+.alert-box.type-subscription .icon-blob {
+  border-color: rgba(255, 212, 196, 0.5);
+  animation: blobMorph 8s ease-in-out infinite, iconPulse 2s ease-in-out infinite, subscriptionGlow 1.5s ease-in-out infinite;
+}
+
+@keyframes subscriptionGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(255, 212, 196, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(255, 212, 196, 0.6);
+  }
+}
+
+.alert-box.type-donation .icon-blob {
+  border-color: rgba(184, 230, 213, 0.5);
+}
+
+.alert-box.type-raid .icon-blob {
+  border-color: rgba(255, 182, 193, 0.5);
+  animation: blobMorph 8s ease-in-out infinite, iconPulse 2s ease-in-out infinite, raidShake 0.5s ease-in-out;
+}
+
+@keyframes raidShake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+  20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+.alert-box.type-bits .icon-blob {
+  border-color: rgba(189, 224, 254, 0.5);
+}
+
+/* Mode test */
+body.test-mode .alert-box {
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* Responsive */
+@media (max-width: 1920px) {
+  .alerts-container {
+    transform-origin: center;
+  }
+}

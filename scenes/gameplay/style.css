@@ -1,0 +1,187 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  background: transparent;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.overlay-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  pointer-events: none;
+}
+
+/* Bordure subtile */
+.frame-border {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+  border: 3px solid rgba(212, 197, 249, 0.3);
+  border-radius: 24px;
+  pointer-events: none;
+  box-shadow:
+    inset 0 0 40px rgba(212, 197, 249, 0.1),
+    0 0 20px rgba(212, 197, 249, 0.15);
+  animation: borderGlow 6s ease-in-out infinite;
+}
+
+@keyframes borderGlow {
+  0%, 100% {
+    border-color: rgba(212, 197, 249, 0.3);
+    box-shadow:
+      inset 0 0 40px rgba(212, 197, 249, 0.1),
+      0 0 20px rgba(212, 197, 249, 0.15);
+  }
+  50% {
+    border-color: rgba(184, 230, 213, 0.35);
+    box-shadow:
+      inset 0 0 40px rgba(184, 230, 213, 0.12),
+      0 0 20px rgba(184, 230, 213, 0.18);
+  }
+}
+
+/* Coins organiques */
+.corner {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  pointer-events: none;
+  opacity: 0.7;
+  filter: blur(1px);
+}
+
+.corner svg {
+  width: 100%;
+  height: 100%;
+}
+
+.corner-top-left {
+  top: 0;
+  left: 0;
+}
+
+.corner-top-right {
+  top: 0;
+  right: 0;
+}
+
+.corner-bottom-left {
+  bottom: 0;
+  left: 0;
+}
+
+.corner-bottom-right {
+  bottom: 0;
+  right: 0;
+}
+
+/* Zone webcam (cadre uniquement - la webcam est ajoutée dans OBS) */
+.webcam-frame {
+  position: absolute;
+  bottom: 40px;
+  left: 40px;
+  width: 360px;
+  height: 360px;
+  pointer-events: none;
+}
+
+.webcam-border {
+  width: 100%;
+  height: 100%;
+  border: 4px solid var(--glass-border);
+  border-radius: 50% 40% 60% 45% / 55% 45% 55% 45%;
+  background: var(--glass-bg);
+  backdrop-filter: blur(8px);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.15),
+    inset 0 0 30px rgba(255, 255, 255, 0.1);
+  animation: webcamMorph 12s ease-in-out infinite;
+  overflow: hidden;
+}
+
+@keyframes webcamMorph {
+  0%, 100% {
+    border-radius: 50% 40% 60% 45% / 55% 45% 55% 45%;
+  }
+  25% {
+    border-radius: 40% 50% 45% 60% / 45% 55% 45% 55%;
+  }
+  50% {
+    border-radius: 45% 60% 50% 40% / 50% 50% 50% 50%;
+  }
+  75% {
+    border-radius: 60% 45% 40% 50% / 55% 45% 55% 45%;
+  }
+}
+
+/* Blobs décoratifs très discrets */
+.deco-blob {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  pointer-events: none;
+  opacity: 0.3;
+  filter: blur(2px);
+}
+
+.deco-top {
+  top: 60px;
+  right: 80px;
+  animation: floatGentle 8s ease-in-out infinite;
+}
+
+.deco-bottom {
+  bottom: 80px;
+  right: 60px;
+  animation: floatGentle 10s ease-in-out infinite reverse;
+}
+
+@keyframes floatGentle {
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+  }
+  25% {
+    transform: translateY(-15px) translateX(10px);
+  }
+  50% {
+    transform: translateY(-8px) translateX(18px);
+  }
+  75% {
+    transform: translateY(-12px) translateX(8px);
+  }
+}
+
+/* Masquer la webcam frame si non utilisée */
+.webcam-frame.hidden {
+  display: none;
+}
+
+/* Mode minimal (sans bordure) */
+body.minimal .frame-border {
+  display: none;
+}
+
+body.minimal .corner {
+  opacity: 0.4;
+}
+
+body.minimal .deco-blob {
+  opacity: 0.15;
+}
+
+/* Responsive - pour preview */
+@media (max-width: 1920px) {
+  body {
+    transform-origin: top left;
+  }
+}
