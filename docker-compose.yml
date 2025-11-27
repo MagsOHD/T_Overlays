@@ -1,0 +1,232 @@
+version: '3.8'
+
+services:
+  # ======================
+  # Frontend React + TypeScript
+  # ======================
+  frontend:
+    container_name: esports_frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+      - REACT_APP_API_URL=http://localhost:8000
+      - REACT_APP_WS_URL=ws://localhost:3001
+      - REACT_APP_OVERLAYS_URL=http://localhost:3000/overlays
+    networks:
+      - esports-network
+    depends_on:
+      - laravel
+      - nestjs
+
+  # ======================
+  # Backend Laravel 11 (PHP 8.3)
+  # Core Business Logic
+  # ======================
+  laravel:
+    container_name: esports_laravel
+    build:
+      context: ./backend-laravel
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend-laravel:/var/www/html
+      - ./overlays:/var/www/html/public/overlays
+    environment:
+      # App Config
+      - APP_NAME=EsportsTournament
+      - APP_ENV=local
+      - APP_KEY=base64:YOUR_APP_KEY_HERE
+      - APP_DEBUG=true
+      - APP_URL=http://localhost:8000
+
+      # Database
+      - DB_CONNECTION=pgsql
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - DB_DATABASE=esports_tournament
+      - DB_USERNAME=esports_user
+      - DB_PASSWORD=esports_pass
+
+      # Redis
+      - REDIS_HOST=redis
+      - REDIS_PASSWORD=null
+      - REDIS_PORT=6379
+      - CACHE_DRIVER=redis
+      - QUEUE_CONNECTION=redis
+      - SESSION_DRIVER=redis
+
+      # Laravel Sanctum
+      - SANCTUM_STATEFUL_DOMAINS=localhost:3000
+    networks:
+      - esports-network
+    depends_on:
+      - postgres
+      - redis
+    command: php artisan serve --host=0.0.0.0 --port=8000
+
+  # ======================
+  # Backend NestJS (Node.js 20)
+  # Real-time & WebSocket
+  # ======================
+  nestjs:
+    container_name: esports_nestjs
+    build:
+      context: ./backend-nestjs
+      dockerfile: Dockerfile
+    ports:
+      - "3001:3001"
+    volumes:
+      - ./backend-nestjs:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+      - PORT=3001
+
+      # Database
+      - DB_TYPE=postgres
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - DB_USERNAME=esports_user
+      - DB_PASSWORD=esports_pass
+      - DB_DATABASE=esports_tournament
+
+      # Redis
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+
+      # JWT (for Sanctum validation)
+      - JWT_SECRET=YOUR_JWT_SECRET_HERE
+
+      # Laravel API
+      - LARAVEL_API_URL=http://laravel:8000
+    networks:
+      - esports-network
+    depends_on:
+      - postgres
+      - redis
+    command: npm run start:dev
+
+  # ======================
+  # PostgreSQL 16
+  # Shared Database
+  # ======================
+  postgres:
+    container_name: esports_postgres
+    image: postgres:16-alpine
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=esports_tournament
+      - POSTGRES_USER=esports_user
+      - POSTGRES_PASSWORD=esports_pass
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - esports-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U esports_user -d esports_tournament"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ======================
+  # Redis 7
+  # Cache + Pub/Sub + Sessions
+  # ======================
+  redis:
+    container_name: esports_redis
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - esports-network
+    command: redis-server --appendonly yes
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ======================
+  # Nginx Reverse Proxy
+  # API Gateway
+  # ======================
+  nginx:
+    container_name: esports_nginx
+    image: nginx:alpine
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/sites-enabled:/etc/nginx/sites-enabled:ro
+    networks:
+      - esports-network
+    depends_on:
+      - laravel
+      - nestjs
+      - frontend
+
+  # ======================
+  # Redis Commander (Dev Tool)
+  # Redis GUI
+  # ======================
+  redis-commander:
+    container_name: esports_redis_commander
+    image: rediscommander/redis-commander:latest
+    ports:
+      - "8081:8081"
+    environment:
+      - REDIS_HOSTS=local:redis:6379
+    networks:
+      - esports-network
+    depends_on:
+      - redis
+
+  # ======================
+  # pgAdmin 4 (Dev Tool)
+  # PostgreSQL GUI
+  # ======================
+  pgadmin:
+    container_name: esports_pgadmin
+    image: dpage/pgadmin4:latest
+    ports:
+      - "5050:80"
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@esports.local
+      - PGADMIN_DEFAULT_PASSWORD=admin
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
+    networks:
+      - esports-network
+    depends_on:
+      - postgres
+
+# ======================
+# Volumes persistants
+# ======================
+volumes:
+  postgres_data:
+    driver: local
+  redis_data:
+    driver: local
+  pgadmin_data:
+    driver: local
+
+# ======================
+# Network bridge
+# ======================
+networks:
+  esports-network:
+    driver: bridge
